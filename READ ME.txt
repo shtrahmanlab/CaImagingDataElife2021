@@ -1,0 +1,35 @@
+"Calcium-Imaging-master.zip" contains all Matlab code used for motion correction of raw calcium 
+imaging movies, and the segmentation and thresholding of dentate gyrus cells to extract calcium 
+traces. To use, unzip the archived directory, add the installation directory to Matlab path, 
+and run "aRunner." Matlab will initialize a GUI that permits you to load a raw calcium imaging 
+movie (.tif) with or without running data (.mat) used for motion correction. All calcium imaging
+files contained in the associated manuscript are included. Raw calcium imaging movies are named
+accordingly with the following prefixes: "NoDGinj ..." for retroAAV only experiments in Figure 
+4, "Virus ..." and "Saline ..." used for AAV1 co-injected animals in Supplementary Figure 4. 
+TIF files are raw calcium imaging videos to be loaded into aRUNNER and MAT files ending with 
+"...running [1-1].mat" as running files.
+
+Each calcium imaging video comes with "Data" folder of results obtained using aRUNNER. 
+This includes:
+"[experiment] M# motionCut_Output.mat" data structure with motion corrected video
+"[experiment] M# segOutput clear reference image.png" image showing maximum projection 
+with cell segmentation
+"[experiment] M# segOutput.mat" data structure that contains segmented video
+"[experiment] M# .fig" showing correlation of motion and non-motion corrected video 
+to reference image.
+"[experiment] M# .mat" data structure as final output of aRUNNER motion correction and 
+segmentation.
+"[experiment] M# intensity data.mat" data structure that contains calcium traces as deltaF/F 
+and as binary firing
+
+aRunner will also provide a ".txt" which contains data summary of: movie duration, threshold 
+factor, mean intensity for all cells, average neg std deviation, lowest and highest neg std 
+dev, size neg std deviation, average amplitude per event, lowest and highest amplitude, 
+average area under curve per event - used in the manuscript.
+
+"ExtractDataFromCalciumAnalysisFiles.m" loads "[experiment] M# intensity data.mat" files and 
+provides data summary of: Total events,  average cells per minute, percent active cells, 
+percent active cells per minute, number of events per minute, num events per minute per active 
+cell - used in manuscript. 
+NOTE: aRunner can provide some of these metrics, but  parameters in 
+"ExtractDataFromCalciumAnalysisFiles.m" were used for the extraction of these data in the manuscript. 
